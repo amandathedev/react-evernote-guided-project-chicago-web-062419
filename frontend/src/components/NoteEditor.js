@@ -1,16 +1,24 @@
 import React, { Component } from "react";
 
 class NoteEditor extends Component {
-  constructor() {
-    super();
-    this.state = {};
+  // Don't forget to pass in props
+  constructor(props) {
+    super(props);
+    this.state = {
+      titleInput: this.props.note.title,
+      bodyInput: this.props.note.body
+    };
   }
 
   // TODO destructure
   // const { title, body } = this.props.note;
 
   handleChange = event => {
-    console.log("got here");
+    console.log(event.target.value);
+    this.setState({
+      // set equal to state to be able to edit
+      [event.target.name]: [event.target.value]
+    });
   };
 
   render() {
@@ -21,12 +29,12 @@ class NoteEditor extends Component {
         <input
           type="text"
           name="title"
-          value={this.props.note.title}
+          value={this.state.titleInput}
           onChange={this.handleChange}
         />
         <textarea
-          name="body"
-          value={this.props.note.body}
+          name="bodyInput"
+          value={this.state.bodyInput}
           onChange={this.handleChange}
         />
         <div className="button-row">
