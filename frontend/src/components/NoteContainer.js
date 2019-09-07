@@ -12,7 +12,9 @@ class NoteContainer extends Component {
 
     this.state = {
       // users: [],
-      notes: []
+      notes: [],
+      displayContent: false,
+      selectedNote: {}
     };
   }
 
@@ -33,15 +35,37 @@ class NoteContainer extends Component {
     // Can't console.log here and see the array of notes because it's asynchronous
   };
 
+  // Pass this function all the way down the chain
+  handleNoteClick = (event, note) => {
+    // console.log("got here");
+    this.setState({
+      displayContent: !this.state.displayContent,
+      selectedNote: note
+    });
+    console.log(this.state.displayContent);
+  };
+
   render() {
     // console.log(this.state.notes);
     return (
       <Fragment>
         <Search />
         <div className="container">
-          return <Sidebar key={note.id} note={note} />;
+          {/* Conditionally render the content */}
+          {/* {this.state.displayContent ? (
+            <Content note={this.state.notes} />
+          ) : null} */}
           {/* Pass the notes array as a prop to child components */}
-          <Content notes={this.state.notes} />
+          <Sidebar
+            notes={this.state.notes}
+            // Pass function
+            handleNoteClick={this.handleNoteClick}
+          />
+          <Content
+            note={this.state.selectedNote}
+            key={this.state.selectedNote.id}
+            displayContent={this.state.displayContent}
+          />
         </div>
       </Fragment>
     );

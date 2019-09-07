@@ -17,8 +17,18 @@ Already set up:
 8. Add constructor and super, set initial state (any class component with a form and any parent of two siblings that need to interact) --> Empty arrays based on schema table names
 9. Fetch from the API in componentDidMount, create const variables of the API URL(s),
 10. Add the fetched data to the empty aray with setState (note: if you console.log and still see an empty array, it's because it's asynchronous. console.log in the render instead)
-11. Pass the array as a prop to child components
+11. Pass the array as a prop to child components (NoteContainer -> Sidebar & Content)
+12. Iterate through the notes array, pass the individual notes and IDs to child components (Sidebar -> NoteList)
+13. Display the individual notes in the sidebar -> noteitem
+14. Truncate note body with slice
+15. Pass handleClick function from NoteContainer all the way down to NoteItem
+16. Set displayContent as a state in NoteContainer, write a handleClick function to change the boolean
+17. Add a selectedNote state to display the note that is clicked (use note.id)
+18. Create, pass, and call a function to display the editForm on click. Use state to toggle
 
 _Questions_
 
 - Do I have to do two fetches (one from each URL)? Yes
+
+_Resources_
+https://medium.com/better-programming/rendering-components-in-onclick-events-in-react-bc0d7b54e1cd

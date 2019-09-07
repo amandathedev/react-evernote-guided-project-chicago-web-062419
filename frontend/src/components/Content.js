@@ -3,19 +3,34 @@ import NoteEditor from "./NoteEditor";
 import NoteViewer from "./NoteViewer";
 import Instructions from "./Instructions";
 
-/*
-  Advice: If you cannot figure out how to get this component to work,
-          move the div and renderContent up into NoteContainer and
-          try to get it to work in the parent first.
-          Then complete the rest of your app before attempting to
-          refactor to get this Content component to work.
-*/
 class Content extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      displayEditForm: false
+    };
+  }
+
+  // Do it
+  editButtonClick = () => {
+    console.log("got here");
+    this.setState({
+      displayEditForm: true
+    });
+  };
+
   renderContent = () => {
-    if (false) {
-      return <NoteEditor />;
-    } else if (false) {
-      return <NoteViewer />;
+    if (this.props.displayContent) {
+      return (
+        <NoteViewer
+          note={this.props.note}
+          // Pass it
+          editButtonClick={this.editButtonClick}
+        />
+      );
+    } else if (this.state.displayEditForm) {
+      return <NoteEditor note={this.props.note} />;
     } else {
       return <Instructions />;
     }
