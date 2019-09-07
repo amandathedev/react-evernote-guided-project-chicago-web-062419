@@ -1,6 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class NoteEditor extends Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
   render() {
     return (
       <form className="note-editor">
