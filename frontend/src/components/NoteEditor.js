@@ -5,12 +5,30 @@ class NoteEditor extends Component {
     super();
     this.state = {};
   }
+
+  // TODO destructure
+  // const { title, body } = this.props.note;
+
+  handleChange = event => {
+    console.log("got here");
+  };
+
   render() {
+    console.log(this.props.note);
     return (
       <form className="note-editor">
-        <input type="text" name="title" />
-        <h1>hello</h1>
-        <textarea name="body" />
+        <h1>hello i am the form</h1>
+        <input
+          type="text"
+          name="title"
+          value={this.props.note.title}
+          onChange={this.handleChange}
+        />
+        <textarea
+          name="body"
+          value={this.props.note.body}
+          onChange={this.handleChange}
+        />
         <div className="button-row">
           <input className="button" type="submit" value="Save" />
           <button type="button">Cancel</button>

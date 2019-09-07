@@ -14,7 +14,7 @@ class Content extends Component {
 
   // Do it
   editButtonClick = () => {
-    console.log("got here");
+    // console.log("got here");
     this.setState({
       displayEditForm: true
     });
@@ -22,15 +22,19 @@ class Content extends Component {
 
   renderContent = () => {
     if (this.props.displayContent) {
-      return (
-        <NoteViewer
-          note={this.props.note}
-          // Pass it
-          editButtonClick={this.editButtonClick}
-        />
-      );
-    } else if (this.state.displayEditForm) {
-      return <NoteEditor note={this.props.note} />;
+      if (this.state.displayEditForm) {
+        return <NoteEditor note={this.props.note} />;
+      } else {
+        return (
+          <NoteViewer
+            note={this.props.note}
+            // Pass it
+            editButtonClick={this.editButtonClick}
+          />
+        );
+      }
+      // } else if (this.state.displayEditForm) {
+      //   return <NoteEditor note={this.props.selectedNote} />;
     } else {
       return <Instructions />;
     }

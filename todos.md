@@ -34,3 +34,5 @@ _Stretch Goals_
 
 _Tidy Up_
 [ ] Clicking a different note in the sidebar when one is already open should switch to the other note, not close the open one
+[ ] Sidebar scroll
+[ ] Change the seed data

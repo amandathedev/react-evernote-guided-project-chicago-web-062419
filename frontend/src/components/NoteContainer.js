@@ -42,7 +42,7 @@ class NoteContainer extends Component {
       displayContent: !this.state.displayContent,
       selectedNote: note
     });
-    console.log(this.state.displayContent);
+    // console.log(this.state.displayContent);
   };
 
   render() {
