@@ -23,7 +23,12 @@ class Content extends Component {
   renderContent = () => {
     if (this.props.displayContent) {
       if (this.state.displayEditForm) {
-        return <NoteEditor note={this.props.note} />;
+        return (
+          <NoteEditor
+            note={this.props.note}
+            saveChange={this.props.saveChange}
+          />
+        );
       } else {
         return (
           <NoteViewer
@@ -33,8 +38,6 @@ class Content extends Component {
           />
         );
       }
-      // } else if (this.state.displayEditForm) {
-      //   return <NoteEditor note={this.props.selectedNote} />;
     } else {
       return <Instructions />;
     }

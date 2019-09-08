@@ -7,6 +7,7 @@ class Sidebar extends Component {
     // console.log(this.props);
     return (
       <div className="master-detail-element sidebar">
+        <button>New</button>
         {/* Iterate over the notes */}
         {this.props.notes.map(note => {
           // Pass individual notes to the child component. Pass in an ID
@@ -26,7 +27,6 @@ class Sidebar extends Component {
             </ul>
           );
         })}
-        <button>New</button>
       </div>
     );
   }

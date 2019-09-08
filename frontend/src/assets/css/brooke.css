@@ -16,7 +16,7 @@ body {
 
 /* Styles */
 h2,
-input[name="title"],
+input[name="titleInput"],
 textarea {
   font-family: "IBM Plex Mono";
 }
@@ -27,7 +27,7 @@ p.instructions {
   text-align: center;
 }
 
-.note-editor input[name="title"] {
+.note-editor input[name="titleInput"] {
   font-size: 24px;
   font-weight: 700;
   border: 1px dashed grey;
@@ -137,6 +137,7 @@ div.sidebar ul li:hover {
 .sidebar {
   width: 25%;
   overflow: scroll;
+  height: calc(100vh - 230px);
 }
 
 .detail {

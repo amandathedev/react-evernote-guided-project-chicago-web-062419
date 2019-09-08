@@ -28,6 +28,7 @@ Already set up:
 19. Pass selectedNote (now called 'note') from Content to NoteEditor
 20. Display the content as input values in the edit form
 21. Set props equal to state for bodyInput and titleInput in NoteEditor so that it can be changed
+22. Send a PATCH request from NoteContainer with the data passed in from the NoteEditor form
 
 _Questions_
 

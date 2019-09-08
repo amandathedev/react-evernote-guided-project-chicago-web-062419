@@ -14,7 +14,7 @@ _Editing Notes_
 
 _Creating Notes_
 
-[ ] At the bottom of your left sidebar, show a New button.
+[X] At the bottom of your left sidebar, show a New button. _Moved to top_
 [ ] Clicking New will create a new note via POST request with some default title and body.
 [ ] This new note should appear in the sidebar.
 
@@ -23,6 +23,7 @@ _Filtering Notes_
 [ ] Implement the filter to search through your notes list by title.
 
 _Stretch Goals_
+[ ] Add the ability to delete a note
 [ ] Add the ability to filter by body, date created, date edited, etc.
 [ ] Sorting by date created, date edited, alphabetical, etc.
 [ ] Use react-router to create a multi-page app
@@ -34,5 +35,5 @@ _Stretch Goals_
 
 _Tidy Up_
 [ ] Clicking a different note in the sidebar when one is already open should switch to the other note, not close the open one
-[ ] Sidebar scroll
+[X] Sidebar scroll
 [ ] Change the seed data

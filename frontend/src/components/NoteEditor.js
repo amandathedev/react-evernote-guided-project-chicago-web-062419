@@ -14,21 +14,25 @@ class NoteEditor extends Component {
   // const { title, body } = this.props.note;
 
   handleChange = event => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     this.setState({
       // set equal to state to be able to edit
       [event.target.name]: [event.target.value]
     });
   };
 
+  saveChange = event => {
+    event.preventDefault();
+    this.props.saveChange(this.state);
+  };
+
   render() {
-    console.log(this.props.note);
     return (
       <form className="note-editor">
         <h1>hello i am the form</h1>
         <input
           type="text"
-          name="title"
+          name="titleInput"
           value={this.state.titleInput}
           onChange={this.handleChange}
         />
@@ -38,7 +42,12 @@ class NoteEditor extends Component {
           onChange={this.handleChange}
         />
         <div className="button-row">
-          <input className="button" type="submit" value="Save" />
+          <input
+            className="button"
+            type="submit"
+            value="Save"
+            onClick={event => this.saveChange(event)}
+          />
           <button type="button">Cancel</button>
         </div>
       </form>
