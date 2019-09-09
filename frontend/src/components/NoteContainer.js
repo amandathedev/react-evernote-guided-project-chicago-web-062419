@@ -37,58 +37,60 @@ class NoteContainer extends Component {
 
   // Pass this function all the way down the chain
   handleNoteClick = (event, note) => {
-    // console.log("got here");
+    // If they're already the same, it will return false
+    // let clickedTwice = !(this.state.selectedNote.title === note.title);
+    let openNote = this.state.selectedNote.title === note.title;
     this.setState({
-      displayContent: !this.state.displayContent,
-      selectedNote: note
+      // Toggle
+      displayContent: openNote ? false : true,
+      selectedNote: openNote ? {} : note
     });
     // console.log(this.state.displayContent);
   };
 
   saveChange = selectedNote => {
     // console.log(notesUrl + "/" + this.state.selectedNote.id);
+    console.log(selectedNote);
     fetch(notesUrl + this.state.selectedNote.id, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        title: selectedNote.title,
-        body: selectedNote.body
+        title: selectedNote.titleInput,
+        body: selectedNote.bodyInput
       })
     })
       .then(resp => resp.json())
+      // .then(note => console.log(note));
       .then(note => this.setEditedNote(note));
   };
 
   setEditedNote = selectedNote => {
     // Iterate through the notes array. Replace the one with the matching ID
-    console.log(selectedNote.id);
+    // console.log(selectedNote.id);
     this.state.notes.map(note => {
-      console.log(note.id);
+      // console.log(note.id);
       if (note.id === selectedNote.id) {
         return (note = selectedNote);
       } else {
         return note;
       }
     });
-    // console.log(selectedNote);
+    this.setState({
+      // TODO something here to make it change without refresh
+      displayContent: false
+    });
   };
 
   render() {
-    // console.log(this.state.notes);
     return (
       <Fragment>
         <Search />
         <div className="container">
-          {/* Conditionally render the content */}
-          {/* {this.state.displayContent ? (
-            <Content note={this.state.notes} />
-          ) : null} */}
           {/* Pass the notes array as a prop to child components */}
           <Sidebar
             notes={this.state.notes}
-            // Pass function
             handleNoteClick={this.handleNoteClick}
           />
           <Content

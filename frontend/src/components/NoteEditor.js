@@ -17,12 +17,13 @@ class NoteEditor extends Component {
     // console.log(event.target.value);
     this.setState({
       // set equal to state to be able to edit
-      [event.target.name]: [event.target.value]
+      [event.target.name]: event.target.value
     });
   };
 
   saveChange = event => {
     event.preventDefault();
+    // Pass to function in NoteContainer (through Content)
     this.props.saveChange(this.state);
   };
 
@@ -48,7 +49,10 @@ class NoteEditor extends Component {
             value="Save"
             onClick={event => this.saveChange(event)}
           />
-          <button type="button">Cancel</button>
+          {/* onClick={}  */}
+          <button type="button" value="cancel">
+            Cancel
+          </button>
         </div>
       </form>
     );
