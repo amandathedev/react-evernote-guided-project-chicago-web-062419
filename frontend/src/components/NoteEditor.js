@@ -49,8 +49,8 @@ class NoteEditor extends Component {
             value="Save"
             onClick={event => this.saveChange(event)}
           />
-          {/* onClick={}  */}
-          <button type="button" value="cancel">
+          {/* On click, close the form (Content has state) */}
+          <button type="button" onClick={this.props.cancelEdit} value="cancel">
             Cancel
           </button>
         </div>

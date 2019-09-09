@@ -4,7 +4,6 @@ import NoteItem from "./NoteItem";
 // Function component
 const NoteList = props => {
   // props, not this.props
-  // console.log(props.note);
   return (
     <ul>
       {/* Pass the props */}

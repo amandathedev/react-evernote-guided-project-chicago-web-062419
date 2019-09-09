@@ -14,7 +14,8 @@ class NoteContainer extends Component {
       // users: [],
       notes: [],
       displayContent: false,
-      selectedNote: {}
+      selectedNote: {},
+      filter: ""
     };
   }
 
@@ -62,36 +63,72 @@ class NoteContainer extends Component {
       })
     })
       .then(resp => resp.json())
-      // .then(note => console.log(note));
       .then(note => this.setEditedNote(note));
   };
 
   setEditedNote = selectedNote => {
     // Iterate through the notes array. Replace the one with the matching ID
-    // console.log(selectedNote.id);
-    this.state.notes.map(note => {
-      // console.log(note.id);
+    let newNotesArray = this.state.notes.map(note => {
       if (note.id === selectedNote.id) {
-        return (note = selectedNote);
+        // this.setState({ note: selectedNote });
+        return selectedNote;
       } else {
         return note;
       }
     });
     this.setState({
-      // TODO something here to make it change without refresh
-      displayContent: false
+      displayContent: false,
+      // Set state to the updated array with the edited note
+      notes: newNotesArray
     });
+  };
+
+  newNote = () => {
+    console.log("made a note");
+    // TODO
+    // POST fetch with default content
+    let newNote = {
+      title: "New note",
+      body: "Add your content here."
+    };
+    fetch(notesUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(newNote)
+    })
+      .then(resp => resp.json())
+      .then(
+        this.setState(prevState => {
+          // Add to the array
+          return { notes: [...prevState.notes, newNote] };
+        })
+      );
+  };
+
+  onSearchChange = () => {
+    console.log("searching");
+  };
+
+  filteredNotes = () => {
+    // Go into this.state.notes (array) and filter for the note whose title includes the string this.state.filter
+    return this.state.notes.filter(note =>
+      note.title.includes(this.state.filter)
+    );
   };
 
   render() {
     return (
       <Fragment>
-        <Search />
+        <Search onSearchChange={this.onSearchChange} />
         <div className="container">
           {/* Pass the notes array as a prop to child components */}
           <Sidebar
-            notes={this.state.notes}
+            // If there is something in the filter state field, show filtered notes. Otherwise show the whole array
+            notes={this.state.filter ? this.filteredNotes() : this.state.notes}
             handleNoteClick={this.handleNoteClick}
+            newNote={this.newNote}
           />
           <Content
             note={this.state.selectedNote}

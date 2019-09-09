@@ -12,11 +12,15 @@ class Content extends Component {
     };
   }
 
-  // Do it
   editButtonClick = () => {
-    // console.log("got here");
     this.setState({
       displayEditForm: true
+    });
+  };
+
+  cancelEdit = () => {
+    this.setState({
+      displayEditForm: false
     });
   };
 
@@ -27,6 +31,7 @@ class Content extends Component {
           <NoteEditor
             note={this.props.note}
             saveChange={this.props.saveChange}
+            cancelEdit={this.cancelEdit}
           />
         );
       } else {
