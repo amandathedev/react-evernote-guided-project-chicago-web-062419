@@ -11,6 +11,8 @@ const NoteViewer = props => {
       <p>{body} </p>
       {/* Call it */}
       <button onClick={props.editButtonClick}>Edit</button>
+      {/* Add delete button */}
+      <button onClick={props.deleteNote}>Delete</button>
     </Fragment>
   );
 };

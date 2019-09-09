@@ -107,15 +107,45 @@ class NoteContainer extends Component {
       );
   };
 
-  onSearchChange = () => {
-    console.log("searching");
+  onSearchChange = event => {
+    // Controlled form
+    this.setState({ filter: event.target.value });
   };
 
   filteredNotes = () => {
     // Go into this.state.notes (array) and filter for the note whose title includes the string this.state.filter
-    return this.state.notes.filter(note =>
-      note.title.includes(this.state.filter)
+
+    return this.state.notes.filter(
+      note =>
+        note.title.toLowerCase().includes(this.state.filter.toLowerCase()) ||
+        note.body.toLowerCase().includes(this.state.filter.toLowerCase())
     );
+  };
+
+  deleteNote = selectedNote => {
+    fetch(notesUrl + this.state.selectedNote.id, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(resp => resp.json())
+      .then(note => this.setDeletedNote(note));
+  };
+
+  // TODO
+  setDeletedNote = selectedNote => {
+    console.log("got here");
+    // let shorterArray = [...this.state.notes]
+    let shorterArray = this.state.notes.filter(
+      note => note.id !== selectedNote.noteId
+    );
+    // console.log(selectedNote);
+    // console.log(shorterArray);
+    this.setState({
+      notes: shorterArray,
+      displayContent: false
+    });
   };
 
   render() {
@@ -135,6 +165,7 @@ class NoteContainer extends Component {
             key={this.state.selectedNote.id}
             displayContent={this.state.displayContent}
             saveChange={this.saveChange}
+            deleteNote={this.deleteNote}
           />
         </div>
       </Fragment>

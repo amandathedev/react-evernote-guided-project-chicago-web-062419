@@ -8,23 +8,23 @@ _Editing Notes_
 
 [X] When displaying a note in the right panel, show an Edit button.
 [X] Clicking the Edit button will allow the user to edit the title and body in the right panel.
-[ ] When in edit mode, also show a Save button which saves the note via a PATCH request.
-[ ] When in edit mode, also show a Cancel button which discards any changes and reverts back to displaying the note.
-[ ] Clicking a different note while in edit mode should discard your changes and display the new note instead.
+[X] When in edit mode, also show a Save button which saves the note via a PATCH request.
+[X] When in edit mode, also show a Cancel button which discards any changes and reverts back to displaying the note.
+[X] Clicking a different note while in edit mode should discard your changes and display the new note instead.
 
 _Creating Notes_
 
 [X] At the bottom of your left sidebar, show a New button. _Moved to top_
-[ ] Clicking New will create a new note via POST request with some default title and body.
-[ ] This new note should appear in the sidebar.
+[X] Clicking New will create a new note via POST request with some default title and body.
+[X] This new note should appear in the sidebar.
 
 _Filtering Notes_
 
-[ ] Implement the filter to search through your notes list by title.
+[X] Implement the filter to search through your notes list by title.
 
 _Stretch Goals_
-[ ] Add the ability to delete a note
-[ ] Add the ability to filter by body, date created, date edited, etc.
+[X] Add the ability to delete a note
+[X] Add the ability to filter by body, date created, date edited, etc.
 [ ] Sorting by date created, date edited, alphabetical, etc.
 [ ] Use react-router to create a multi-page app
 [ ] User signup & login
@@ -34,6 +34,9 @@ _Stretch Goals_
 [ ] Emailing notes
 
 _Tidy Up_
-[ ] Clicking a different note in the sidebar when one is already open should switch to the other note, not close the open one
+[X] Clicking a different note in the sidebar when one is already open should switch to the other note, not close the open one
 [X] Sidebar scroll
-[ ] Change the seed data
+[X] Change the seed data
+[X] Downcase for filtering
+[X] Can only switch between notes for seeded notes
+[X] The submitted notes do not behave the same way as the seeded notes

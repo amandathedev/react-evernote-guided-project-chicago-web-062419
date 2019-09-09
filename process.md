@@ -29,6 +29,9 @@ Already set up:
 20. Display the content as input values in the edit form
 21. Set props equal to state for bodyInput and titleInput in NoteEditor so that it can be changed
 22. Send a PATCH request from NoteContainer with the data passed in from the NoteEditor form
+23. Set the state to be able to change between open notes (handleNoteClick)
+24. Add an onClick on the New button and call the function in NoteContainer with a fetch POST request
+25. Filter the results with a controlled form (onChange in Search, conditional rendering in Sidebar props from NoteContainer, filteredNotes and onSearchChange functions in NoteContainer)
 
 _Questions_
 
@@ -36,3 +39,4 @@ _Questions_
 
 _Resources_
 https://medium.com/better-programming/rendering-components-in-onclick-events-in-react-bc0d7b54e1cd
+https://medium.com/@AndrewBonner2/filter-results-with-react-f746dc7984c

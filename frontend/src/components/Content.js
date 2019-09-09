@@ -38,8 +38,9 @@ class Content extends Component {
         return (
           <NoteViewer
             note={this.props.note}
-            // Pass it
             editButtonClick={this.editButtonClick}
+            // Pass it
+            deleteNote={this.props.deleteNote}
           />
         );
       }
