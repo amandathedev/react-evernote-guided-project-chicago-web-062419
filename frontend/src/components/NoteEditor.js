@@ -25,12 +25,13 @@ class NoteEditor extends Component {
     event.preventDefault();
     // Pass to function in NoteContainer (through Content)
     this.props.saveChange(this.state);
+    this.props.cancelEdit();
   };
 
   render() {
     return (
       <form className="note-editor">
-        <h1>hello i am the form</h1>
+        {/* <h1>hello i am the form</h1> */}
         <input
           type="text"
           name="titleInput"

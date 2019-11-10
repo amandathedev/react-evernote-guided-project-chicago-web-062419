@@ -5,6 +5,7 @@ import Content from "./Content";
 
 // const usersUrl = "http://localhost:3000/api/v1/users";
 const notesUrl = "http://localhost:3000/api/v1/notes/";
+// const categoriesUrl = "http://localhost:3000/api/v1/categories";
 
 class NoteContainer extends Component {
   constructor() {
@@ -51,7 +52,7 @@ class NoteContainer extends Component {
 
   saveChange = selectedNote => {
     // console.log(notesUrl + "/" + this.state.selectedNote.id);
-    console.log(selectedNote);
+    // console.log(selectedNote);
     fetch(notesUrl + this.state.selectedNote.id, {
       method: "PATCH",
       headers: {
@@ -68,24 +69,30 @@ class NoteContainer extends Component {
 
   setEditedNote = selectedNote => {
     // Iterate through the notes array. Replace the one with the matching ID
-    let newNotesArray = this.state.notes.map(note => {
-      if (note.id === selectedNote.id) {
-        // this.setState({ note: selectedNote });
-        return selectedNote;
-      } else {
-        return note;
-      }
-    });
+    let newNotesArray = this.state.notes.map(note =>
+      note.id === selectedNote.id ? selectedNote : note
+    );
+    // if (note.id === selectedNote.id) {
+    //   // this.setState({ note: selectedNote });
+    //   return selectedNote;
+    // } else {
+    //   return note;
+    // }
+
     this.setState({
-      displayContent: false,
+      displayContent: true,
       // Set state to the updated array with the edited note
-      notes: newNotesArray
+      notes: newNotesArray,
+      selectedNote: selectedNote
     });
   };
 
+  // newNote = () => {
+  //   console.log("new note");
+  // };
+
   newNote = () => {
-    console.log("made a note");
-    // TODO
+    console.log("note saved");
     // POST fetch with default content
     let newNote = {
       title: "New note",
@@ -99,12 +106,13 @@ class NoteContainer extends Component {
       body: JSON.stringify(newNote)
     })
       .then(resp => resp.json())
-      .then(
+      .then(newNote => {
         this.setState(prevState => {
           // Add to the array
           return { notes: [...prevState.notes, newNote] };
-        })
-      );
+        });
+      })
+      .catch(alert);
   };
 
   onSearchChange = event => {

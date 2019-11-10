@@ -5,15 +5,12 @@ import NoteItem from "./NoteItem";
 const NoteList = props => {
   // props, not this.props
   return (
-    <ul>
-      {/* Pass the props */}
-      <NoteItem
-        note={props.note}
-        // Keep passing
-        handleNoteClick={props.handleNoteClick}
-        // truncatedText={truncateText(props.note.body)}
-      />
-    </ul>
+    <NoteItem
+      note={props.note}
+      // Keep passing
+      handleNoteClick={props.handleNoteClick}
+      // truncatedText={truncateText(props.note.body)}
+    />
   );
 };
 

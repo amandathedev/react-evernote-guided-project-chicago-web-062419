@@ -3,6 +3,7 @@ import React from "react";
 const NoteItem = props => {
   // console.log(props.note);
   // let truncatedText = props.truncateText(props.note.body)
+  // console.log(props);
   return (
     <div onClick={props.handleNoteClick}>
       <h2>{props.note.title}</h2>

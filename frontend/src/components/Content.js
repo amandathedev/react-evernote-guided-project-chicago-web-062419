@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import NoteEditor from "./NoteEditor";
 import NoteViewer from "./NoteViewer";
 import Instructions from "./Instructions";
+// import NoteCreator from "./NoteCreator";
 
 class Content extends Component {
   constructor() {

@@ -33,6 +33,14 @@ _Stretch Goals_
 [ ] Tagging
 [ ] Emailing notes
 
+_Filter by categories_
+[X] Add category table to schema
+[X] Add category to schema (db:drop, update migration files, db:migrate)
+[X] Add categories to seeded data (db:seed)
+[ ] Add category to edit form
+[ ] Add/create via hashtags with auto-suggested categories: fetch the categories
+[ ] Add category display to NoteViewer
+
 _Tidy Up_
 [X] Clicking a different note in the sidebar when one is already open should switch to the other note, not close the open one
 [X] Sidebar scroll

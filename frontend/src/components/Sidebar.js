@@ -14,7 +14,6 @@ class Sidebar extends Component {
           // Pass individual notes to the child component. Pass in an ID
           return (
             // Add matching id to UL
-            // TODO
             <ul key={note.id}>
               <li>
                 <NoteList

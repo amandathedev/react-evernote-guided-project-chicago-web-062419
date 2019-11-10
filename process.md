@@ -32,6 +32,9 @@ Already set up:
 23. Set the state to be able to change between open notes (handleNoteClick)
 24. Add an onClick on the New button and call the function in NoteContainer with a fetch POST request
 25. Filter the results with a controlled form (onChange in Search, conditional rendering in Sidebar props from NoteContainer, filteredNotes and onSearchChange functions in NoteContainer)
+    _other stuff i forgot to write_
+
+26. Do something in the serializer
 
 _Questions_
 
